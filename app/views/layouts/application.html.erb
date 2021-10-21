@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <header>
+      <%= link_to_if I18n.locale != :ja, '日本語', { locale: :ja } %>
+      <%= link_to_if I18n.locale != :en, 'English', { locale: :en } %>
+    </header>
     <%= yield %>
   </body>
 </html>
