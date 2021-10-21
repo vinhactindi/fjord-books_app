@@ -1,0 +1,39 @@
+ja:
+  activerecord:
+    models:
+      book: 
+        one: 本
+        other: 本
+    attributes:
+      book:
+        title: タイトル
+        memo: メモ
+        author: 筆者
+        picture: 写真
+  helpers:
+      submit:
+        create: "%{model}を作成"
+        update: "%{model}を変更"
+  commons: &commons
+    show: 表示
+    edit: 編集
+    destroy: 削除
+    back: 戻る
+    are_you_sure: 本気ですか？
+  books:
+    index: &index_books
+      <<: *commons
+      new_book: 本を追加
+    new: &new_book
+      <<: *index_books
+    show:
+      <<: *commons
+    edit:
+      editing_book: 本の編集
+      <<: *commons
+    create:
+      book_was_successfully_created: 本は正常に作成されました。
+    destroy:
+      book_was_successfully_destroyed: 本は無事に削除されました
+    update:
+      book_was_successfully_updated: 本は正常に更新されました。
