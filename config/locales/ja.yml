@@ -223,6 +223,10 @@ ja:
       account_update: アカウント編集
       cancel_my_account: アカウントをキャンセルする
       unhappy: 不幸？
+      forgot_password: パスワードをお忘れですか？
+      did_not_receive_confirmation_instructions: 確認の指示が届きませんでしたか？
+      did_not_receive_unlock_instructions: ロック解除の指示を受け取りませんでしたか？
+      sign_in_with: "%{provider}でサインイン"
     pagination:
       first: '最初'
       last: '最後'
