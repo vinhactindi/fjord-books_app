@@ -1,0 +1,23 @@
+<div>
+  <hr>
+  <strong><%= Comment.model_name.human %>:</strong>
+  <% if commentable.comments.present? %>
+    <ul>
+      <% commentable.comments.order(:id).includes(:user).each do |comment| %>
+        <li>
+          <code>
+            [<%= l comment.created_at, format: :short %>] - <%= link_to comment.user.name, comment.user %> : 
+          </code>
+          <%= comment.content %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    (<%= t('.no_comments') %>)
+  <% end %>
+
+  <%= form_with model: [commentable, commentable.comments.new] do |f| %>
+    <%= f.text_field :content, required: true %>
+    <%= f.submit t('.comment') %>
+  <% end %>
+</div>

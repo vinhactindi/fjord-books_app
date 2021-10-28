@@ -255,3 +255,7 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  shared:
+    comments:
+      no_comments: コメントがありません
+      comment: コメントする
