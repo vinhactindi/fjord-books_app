@@ -219,6 +219,7 @@ ja:
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
       follow: フォロー
+      unfollow: フォローを解除する
     pagination:
       first: '最初'
       last: '最後'
