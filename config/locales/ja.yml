@@ -215,6 +215,18 @@ ja:
       delete_confirm: よろしいですか？
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
+    authentication:
+      sign_up: 登録
+      log_in: ログイン
+      logged_in_as_html: <strong>%{email}</strong>としてログインしました。
+      log_out: ログアウト
+      account_update: アカウント編集
+      cancel_my_account: アカウントをキャンセルする
+      unhappy: 不幸？
+      forgot_password: パスワードをお忘れですか？
+      did_not_receive_confirmation_instructions: 確認の指示が届きませんでしたか？
+      did_not_receive_unlock_instructions: ロック解除の指示を受け取りませんでしたか？
+      sign_in_with: "%{provider}でサインイン"
     pagination:
       first: '最初'
       last: '最後'
