@@ -1,0 +1,6 @@
+<p>
+  <b><%= user.followers.size %></b>
+  <%= link_to t('users.followers.index.title'), user_followers_path(user_id: user.id) %> | 
+  <b><%= user.followings.size %></b> 
+  <%= link_to t('users.followings.index.title'), user_followings_path(user_id: user.id) %>
+<p>
