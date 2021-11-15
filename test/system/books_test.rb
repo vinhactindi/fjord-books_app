@@ -50,9 +50,10 @@ class BooksTest < ApplicationSystemTestCase
   test 'destroying a Book' do
     visit books_url
     page.accept_confirm do
-      click_on '削除', match: :first
+      find(:xpath, "//tr[td[contains(.,'#{books(:one).title}')]]/td/a", text: '削除').click
     end
 
+    assert_no_text books(:one).title
     assert_text '本が削除されました。'
   end
 end
