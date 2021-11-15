@@ -34,6 +34,7 @@ class UserTest < ActiveSupport::TestCase
     me = users(:bob)
     she = users(:alice)
 
+    assert_not me.following?(she)
     me.follow(she)
     assert me.following?(she)
   end
