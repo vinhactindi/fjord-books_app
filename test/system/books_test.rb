@@ -49,11 +49,16 @@ class BooksTest < ApplicationSystemTestCase
 
   test 'destroying a Book' do
     visit books_url
-    page.accept_confirm do
-      find(:xpath, "//tr[td[contains(.,'#{books(:sapiens).title}')]]/td/a", text: '削除').click
+
+    tr = all('tr').find { |element| element.text.include?('Sapiens - A Brief History Of Humankind') }
+
+    within tr do
+      click_link '削除'
     end
 
-    assert_no_text books(:sapiens).title
+    accept_alert
+
+    assert_no_text 'Sapiens - A Brief History Of Humankind'
     assert_text '本が削除されました。'
   end
 end
