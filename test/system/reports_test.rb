@@ -49,11 +49,16 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'destroying a Report' do
     visit reports_url
-    page.accept_confirm do
-      find(:xpath, "//tr[td[contains(.,'#{reports(:one).title}')]]/td/a", text: '削除').click
+
+    tr = all('tr').find { |element| element.text.include?("Alice's first report") }
+
+    within tr do
+      click_link '削除'
     end
 
-    assert_no_text reports(:one).title
+    accept_alert
+
+    assert_no_text "Alice's first report"
     assert_text '日報が削除されました。'
   end
 end
