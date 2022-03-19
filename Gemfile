@@ -48,7 +48,7 @@ group :development do
   gem 'web-console', '>= 4.1.0'
 
   gem 'capistrano', '~> 3.11'
-  gem 'capistrano3-puma', '~> 0.2.0'
+  gem 'capistrano3-puma'
   gem 'capistrano-bundler', '~> 2.0'
   gem 'capistrano-rails', '~> 1.4'
   gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'

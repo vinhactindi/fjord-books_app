@@ -20,5 +20,8 @@ module BooksApp
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.time_zone = 'Tokyo'
+
+    config.hosts << 'vinhnt.tk'
+    config.hosts << 'www.vinhnt.tk'
   end
 end
