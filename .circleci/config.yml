@@ -14,6 +14,7 @@ jobs:
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
+      - run: sudo apt-get update && sudo apt-get install -y sqlite3 libsqlite3-dev
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
