@@ -15,7 +15,6 @@ jobs:
     steps:
       - checkout
       - run: sudo apt-get update && sudo apt-get install -y sqlite3 libsqlite3-dev
-      - run: sudo apt-get install libmagickwand-dev
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
@@ -40,6 +39,7 @@ jobs:
       - browser-tools/install-browser-tools
       - checkout
       - run: sudo apt-get update && sudo apt-get install -y sqlite3 libsqlite3-dev
+      - run: sudo apt-get install libmagickwand-dev
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
