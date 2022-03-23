@@ -7,10 +7,10 @@ require 'open-uri'
 ActiveStorage::AnalyzeJob.queue_adapter = :inline
 
 print '開発環境のデータをすべて削除して初期データを投入します。よろしいですか？[Y/n]: ' # rubocop:disable Rails/Output
-unless $stdin.gets.chomp == 'Y'
-  puts '中止しました。' # rubocop:disable Rails/Output
-  return
-end
+# unless $stdin.gets.chomp == 'Y'
+#   puts '中止しました。' # rubocop:disable Rails/Output
+#   return
+# end
 
 def picture_file(name)
   File.open(Rails.root.join("db/seeds/#{name}"))
