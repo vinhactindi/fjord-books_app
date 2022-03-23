@@ -52,6 +52,9 @@ group :development do
   gem 'capistrano-bundler', '~> 2.0'
   gem 'capistrano-rails', '~> 1.4'
   gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+
+  gem 'bcrypt_pbkdf'
+  gem 'ed25519'
 end
 
 group :test do
