@@ -69,7 +69,7 @@ jobs:
           cache-key: "yarn.lock"
       - add_ssh_keys:  
           fingerprints:  
-            - f8:e1:1a:64:bc:26:20:0b:0e:fc:20:bb:89:ce:8f:00
+            - 50:78:50:28:1c:3a:63:e0:6d:ec:e4:d6:ac:e9:fe:d6
       - run:
           name: Capistrano の実行
           command: bundle exec cap production deploy
