@@ -8,7 +8,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/ruby:3.0.2-node
+      - image: cimg/ruby:3.0.1-node
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD
@@ -22,10 +22,11 @@ jobs:
   test:
     parallelism: 3
     docker:
-      - image: cimg/ruby:3.0.2-browsers
+      - image: cimg/ruby:3.0.1-browsers
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD
+
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
