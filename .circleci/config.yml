@@ -67,6 +67,9 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
           cache-key: "yarn.lock"
+      - add_ssh_keys:  
+          fingerprints:  
+            - f8:e1:1a:64:bc:26:20:0b:0e:fc:20:bb:89:ce:8f:00
       - run:
           name: Capistrano の実行
           command: bundle exec cap production deploy
