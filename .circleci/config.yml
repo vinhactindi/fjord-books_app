@@ -38,6 +38,7 @@ jobs:
     steps:
       - browser-tools/install-browser-tools
       - checkout
+      - run: sudo apt-get update && sudo apt-get install -y sqlite3 libsqlite3-dev
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
@@ -45,9 +46,6 @@ jobs:
       - run:
           name: Webpack の実行
           command: bundle exec rails webpacker:compile
-      - run:
-          name: DB の待機
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: データベースのセットアップ
           command: bundle exec rails db:setup
