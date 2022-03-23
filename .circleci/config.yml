@@ -53,6 +53,23 @@ jobs:
       - run:
           name: データベースのセットアップ
           command: bundle exec rails test:all
+  
+  deploy:
+    docker:
+      - image: cimg/ruby:3.0.1-node
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
+    steps:
+      - checkout
+      - run: sudo apt-get update && sudo apt-get install -y sqlite3 libsqlite3-dev
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
+      - run:
+          name: Capistrano の実行
+          command: bundle exec cap production deploy
 
 workflows:
   version: 2
@@ -63,3 +80,7 @@ workflows:
       - test:
           requires:
             - build
+
+      - deploy:
+          requires:
+            - test
