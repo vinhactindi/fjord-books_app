@@ -1,32 +1,25 @@
 version: 2.1
 
 orbs:
-  ruby: circleci/ruby@1.0
-  node: circleci/node@2
+  ruby: circleci/ruby@1.4
+  node: circleci/node@5.0.1
   browser-tools: circleci/browser-tools@1.1
 
 jobs:
   build:
     docker:
       - image: cimg/ruby:3.0.1-node
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - run: sudo apt-get update && sudo apt-get install -y sqlite3 libsqlite3-dev
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
-          cache-key: "yarn.lock"
 
   test:
     parallelism: 3
     docker:
       - image: cimg/ruby:3.0.1-browsers
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD
 
     environment:
       BUNDLE_JOBS: "3"
@@ -43,7 +36,6 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
-          cache-key: "yarn.lock"
       - run:
           name: Webpack の実行
           command: bundle exec rails webpacker:compile
@@ -57,16 +49,12 @@ jobs:
   deploy:
     docker:
       - image: cimg/ruby:3.0.1-node
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - run: sudo apt-get update && sudo apt-get install -y sqlite3 libsqlite3-dev
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
-          cache-key: "yarn.lock"
       - add_ssh_keys:  
           fingerprints:  
             - 50:78:50:28:1c:3a:63:e0:6d:ec:e4:d6:ac:e9:fe:d6
